@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 ARG extra_modules="zrest drain"
 ARG DEBIAN_FRONTEND=noninteractive
 
