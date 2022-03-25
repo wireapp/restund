@@ -194,7 +194,7 @@ static bool indication_handler(struct restund_msgctx *ctx, int proto,
 	}
 
 	fed = turnd.federate;
-	if (fed)
+	if (fed && al->relaxed && !perm)
 		err = federate_send(fed, psa, &data->v.data);
 	else
 		err = udp_send(al->rel_us, psa, &data->v.data);
