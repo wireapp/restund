@@ -29,7 +29,7 @@ pipeline {
         success {
             node( 'built-in' ) {
                 withCredentials([ string( credentialsId: 'wire-jenkinsbot', variable: 'jenkinsbot_secret' ) ]) {
-                    wireSend secret: jenkinsbot_secret, message: "✅ restund ${params.branch} (${ BUILD_ID }) succeeded\n${ BUILD_URL }console"
+                    wireSend secret: jenkinsbot_secret, message: "✅ restund branch: ${BRANCH_NAME} (${BUILD_ID}) succeeded\n${BUILD_URL}console"
                 }
             }
         }
@@ -37,7 +37,7 @@ pipeline {
         failure {
             node( 'built-in' ) {
                 withCredentials([ string( credentialsId: 'wire-jenkinsbot', variable: 'jenkinsbot_secret' ) ]) {
-                    wireSend secret: jenkinsbot_secret, message: "❌ restund ${params.branch} (${ BUILD_ID }) failed\n${ BUILD_URL }console"
+                    wireSend secret: jenkinsbot_secret, message: "❌ restund branch: ${BRANCH_NAME} (${BUILD_ID}) failed\n${BUILD_URL}console"
                 }
             }
         }
