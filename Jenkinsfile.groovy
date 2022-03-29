@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: params.branch, url: 'https://github.com/wireapp/restund'
+                checkout scm
             }
         }
         stage('Build') {
