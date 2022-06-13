@@ -214,8 +214,7 @@ int federate_dtls_init(struct federate *fed, struct sa *lsa)
 
 	err = tls_set_srtp(fed->dtls.tls,
 			   "SRTP_AEAD_AES_256_GCM:"
-			   "SRTP_AEAD_AES_128_GCM:"
-			   "SRTP_AES128_CM_SHA1_80");
+			   "SRTP_AEAD_AES_128_GCM");
 	if (err) {
 		restund_info("turn: failed to enable SRTP profile (%m)\n",
 			      err);
